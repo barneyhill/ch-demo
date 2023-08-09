@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<title>Minimal sql.js-httpvfs demo</title>
+<script src="./dist/bundle.js"></script>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .info-text {
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        margin: 20px 0;
+    }
+
+    /* Styles for the search box */
+    #companySearch {
+        width: 60%;             /* Making the search box wider */
+        font-size: 1.5em;      /* Increasing the font size */
+        padding: 10px 15px;    /* Adding some padding for better appearance */
+        margin: 0 auto;        /* Centering the search box */
+        display: block;        /* Making it block for centering */
+    }
+
+</style>
+
+<div class="info-text">
+    All Companies House companies, individuals and addresses are hosted on github pages in a SQLite DB and accessed statically.<br>
+    SQLite is compiled to WebAssembly client-side where it fetches chunks of the database with HTTP Range requests.<br>
+    <a href="https://phiresky.github.io/blog/2021/hosting-sqlite-databases-on-github-pages/">Check out Phiresky's 2021 blog post for more details.</a>
+</div>
+
+<!-- Search Box -->
+<input type="text" id="companySearch" placeholder="Search for companies...">
+<div id="searchResultsTable"></div>
+<h2>Company Details</h2>
+<div id="companyDetails">
+    <div id="addresses"></div>
+    <div id="individuals"></div>
+</div>
